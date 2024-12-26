@@ -2,17 +2,17 @@
 
 document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
-  alert("Right Click Not Allowed");
+  // alert("Right Click Not Allowed");
 });
 document.onselectstart = (e) => {
   e.preventDefault();
   //    alert("Content Copy Are Not Allowed")
 };
-document.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  if (e.key.toLowerCase() === "u" && e.ctrlKey) {
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   e.preventDefault();
+//   if (e.key.toLowerCase() === "u" && e.ctrlKey) {
+//   }
+// });
 // import {app} from "E:"
 document.getElementById("currentYear").textContent = new Date().getFullYear();
 
