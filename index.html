@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <audio id="cmp-sound" src="complete.mp3"></audio>
+    <div class="container">
+      <div class="inner-overlay">
+        <div class="bar">
+          <img
+            src="white-bar.png"
+            alt="Menu Icon"
+            id="menu"
+            onclick="openmenu()"
+          />
+          <!-- Menu button -->
+          <h3 id="welcomeMessage2" style="color: aliceblue">Welcome</h3>
+        </div>
+        <div class="content">
+          <div class="left"><img src="todo.png" alt="" /></div>
+          <!-- <div class="right"> </div> -->
+        </div>
+      </div>
+
+      <div class="overlay-card">
+     <div class="top">
+      <i class="fa-regular fa-circle-xmark" onclick="closepersonal()"></i>
+      <form action="" class="creat">
+        <center>
+          <input
+            type="text"
+            placeholder="Add Task"
+            id="name"
+            class="add inputtsk"
+          />
+
+          <button type="button" class="addbtn tskbtn" id="add">
+            +
+          </button>
+        </center>
+      </form>
+
+      <form action="" class="edit" style="display: none">
+        <center>
+          <input
+            type="text"
+            placeholder="Edit Task"
+            id="editName"
+            class="inputtsk"
+          />
+
+          <button
+            type="button"
+            class="editbtn tskbtn"
+            onclick="update()"
+            style="font-size: 15px"
+          >
+            Edit
+          </button>
+        </center>
+      </form>
+      <h2 style="color: black; padding: 10px; text-align: center;">Personal Task</h2>
+     </div>
+
+    
+        <div id="table_data"></div>
+      </div>
+
+      <div class="overlay-card study-overlay-card">
+        <div class="top">
+
+          <i class="fa-regular fa-circle-xmark" onclick="closestudy()"></i>
+          <form action="" class="creat createstudy">
+            <center>
+              <input
+                type="text"
+                placeholder="Add Task"
+                id="studyname"
+                class="inputtsk add"
+              />
+  
+              <button type="button" class="addbtn tskbtn" onclick="addstudy()">
+                +
+              </button>
+            </center>
+          </form>
+  
+          <form action="" class="edit editstudy" style="display: none">
+            <center>
+              <input
+                type="text"
+                placeholder="Edit Task"
+                id="editstudyName"
+                class="inputtsk"
+              />
+  
+              <button
+                type="button"
+                class="editbtn tskbtn"
+                onclick="updatestudy()"
+                style="font-size: 15px"
+              >
+                Edit
+              </button>
+            </center>
+          </form>
+          <h2 style="color: black; padding: 10px; text-align: center;">Study Task</h2>
+        </div>
+
+     
+        <div id="table_data1"></div>
+      </div>
+
+      <div class="overlay-card finance-overlay-card">
+        <div class="top">
+
+          <i class="fa-regular fa-circle-xmark" onclick="closefinace()"></i>
+          <form action="" class="creat createfinance">
+            <center>
+              <input
+                type="text"
+                placeholder="Add Task"
+                id="financename"
+                class="inputtsk add"
+              />
+  
+              <button type="button" class="addbtn tskbtn" onclick="addfinance()">
+                +
+              </button>
+            </center>
+          </form>
+  
+          <form action="" class="edit editfinance" style="display: none">
+            <center>
+              <input
+                type="text"
+                placeholder="Edit Task"
+                id="editfinanceName"
+                class="inputtsk"
+              />
+  
+              <button
+                type="button"
+                class="editbtn tskbtn"
+                onclick="updatefinance()"
+                style="font-size: 15px"
+              >
+                Edit
+              </button>
+            </center>
+          </form>
+          <h2 style="color: black; padding: 10px; text-align: center;">Finance Task</h2>
+        </div>
+
+      
+        <div id="table_data2"></div>
+      </div>
+
+      <div class="main_conent">
+        <div class="card" onclick="personal()">
+          <div class="content">
+            <div class="left">
+              <img src="./images/boy.png" alt="" />
+            </div>
+            <div class="right">
+              <div class="middle">
+                <h2>Personal</h2>
+                <p id="counterper" class="counter">Task</p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="study()">
+          <div class="content">
+            <div class="left">
+              <img src="./images/education.png" alt="" />
+            </div>
+            <div class="right">
+              <div class="middle">
+                <h2>Study</h2>
+                <p id="counterstudy" class="counter">Task</p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="finance()">
+          <div class="content">
+            <div class="left">
+              <img src="./images/saving.png" alt="" />
+            </div>
+            <div class="right">
+              <div class="middle">
+                <h2>Finance</h2>
+                <p id="counterfinance" class="counter">Task</p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="work()">
+          <div class="content">
+            <div class="left">
+              <img src="./images/briefcase.png" alt="" />
+            </div>
+            <div class="right">
+              <div class="middle">
+                <h2>Work</h2>
+                <p id="counterstudy" class="counter">Task</p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <p><span  style="margin-top: 10px;font-size: 20px; font-weight: bold; color: red;">&copy;</span> <span id="currentYear"></span> ToDoListApplication. All Rights Reserved.</p>
+          <p>Design By <a href="https://dipayan-dey.github.io/-dip_portfolio/">Dipayan Dey</a></p>
+        </div>
+      </div>
+
+      <div class="slider">
+        <div class="close-slider">
+          <img src="cross.svg" alt="" onclick="closemenu()" />
+        </div>
+        <div class="content">
+          <div class="text">
+            <h2>Welcome to TO-DO-LIST</h2>
+            <h4 id="welcomeMessage"></h4>
+          </div>
+
+          <center>
+            <div class="main">
+              <input type="checkbox" id="chk" aria-hidden="true" />
+
+              <div class="signup">
+                <form id="signupForm">
+                  <label for="chk" aria-hidden="true">Sign up</label>
+                  <input
+                    type="text"
+                    name="txt"
+                    placeholder="User name"
+                    required=""
+                    id="username"
+                    class="input"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required=""
+                    id="signupEmail"
+                    class="input"
+                  />
+                  <input
+                    type="password"
+                    name="pswd"
+                    placeholder="Password"
+                    required=""
+                    id="signupPassword"
+                    class="input"
+                  />
+                  <button type="submit" class="btn">Sign up</button>
+                </form>
+              </div>
+
+              <div class="login">
+                <form id="loginForm">
+                  <label for="chk" aria-hidden="true">Login</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required=""
+                    id="loginEmail"
+                    class="input"
+                  />
+                  <input
+                    type="password"
+                    name="pswd"
+                    placeholder="Password"
+                    required=""
+                    id="loginPassword"
+                    class="input"
+                  />
+                  <button type="submit" class="btn">Login</button>
+                </form>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      
+    </div>
+    <!-- <script src="app.js"></script> -->
+     <!-- <script src="E:\Dipayan Dey\Documents\programme file\All Projects\Projects\Js./app.js"></script>
+     <script src=""></script>
+    <script src="personal.js"></script>
+    <script src="study.js"></script>
+    <script src="finance.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+    <script src="./Script/app.js"></script>
+    <script src="./Script/finance.js"></script>
+    <script src="./Script/personal.js"></script>
+    <script src="./Script/study.js"></script>
+  </body>
+</html>
